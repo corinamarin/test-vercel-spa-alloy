@@ -4,38 +4,71 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/caramelo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--    <script>-->
+<!--      window._AT = window._AT || {};-->
+<!--      window._AT.config = Object.assign({}, window._AT.config, {-->
+<!--        checkAllowedOrigin: false,-->
+<!--      });-->
+<!--      window.targetGlobalSettings = {-->
+<!--        // cookieDomain: "tgt-spa.github.io", // set cookies on the subdomain-->
+<!--        cookieDomain: "target-spa.vercel.app",-->
+<!--        // cookieDomain: "awesome-stonebraker-95ee14.netlify.app/",-->
+<!--      };-->
+<!--    </script>-->
+
     <script>
-      window._AT = window._AT || {};
-      window._AT.config = Object.assign({}, window._AT.config, {
-        checkAllowedOrigin: false,
-      });
-      window.targetGlobalSettings = {
-        // cookieDomain: "tgt-spa.github.io", // set cookies on the subdomain
-        cookieDomain: "target-spa.vercel.app",
-        // cookieDomain: "awesome-stonebraker-95ee14.netlify.app/",
-      };
+      !function (n, o) {
+        o.forEach(function (o) {
+          n[o] || ((n.__alloyNS = n.__alloyNS ||
+                  []).push(o), n[o] = function () {
+            var u = arguments; return new Promise(
+                    function (i, l) { n[o].q.push([i, l, u]) })
+          }, n[o].q = [])
+        })
+      }
+      (window, ["alloy"]);
     </script>
 
     <!--/Data Layer-->
     <!-- targetPageParams(), targetPageParamsAll(), Data Providers or targetGlobalSettings() functions to enrich the visitor profile or modify the library settings-->
-    <script>
-      targetPageParamsAll = function () {
-        return {
-          a: 1,
-          b: 2,
-          at_property: "8757f595-1143-b75b-c7c8-111fc7a4cc6d",
-          profile: {
-            test: "test",
-            country: {
-              city: "Bucharest",
-            },
-          },
-        };
-      };
-    </script>
+<!--    <script>-->
+<!--      targetPageParamsAll = function () {-->
+<!--        return {-->
+<!--          a: 1,-->
+<!--          b: 2,-->
+<!--          at_property: "8757f595-1143-b75b-c7c8-111fc7a4cc6d",-->
+<!--          profile: {-->
+<!--            test: "test",-->
+<!--            country: {-->
+<!--              city: "Bucharest",-->
+<!--            },-->
+<!--          },-->
+<!--        };-->
+<!--      };-->
+<!--    </script>-->
     <!--/targetPageParams()-->
-    <script src="%PUBLIC_URL%/scripts/at-taasqa1-spa.js"></script>
+<!--    <script src="%PUBLIC_URL%/scripts/at-taasqa1-spa.js"></script>-->
+    <script src=%PUBLIC_URL%/scripts/alloy.js"></script>
+    <script>
+      function configureAlloy(obj) {
+        obj ||= {};
+        obj.edgeConfigId ||= '0814ac07-ffeb-44c4-8633-85301d5e721c';
+        obj.orgId ||= "906E3A095DC834230A495FD6@AdobeOrg";
+        console.info("configuring alloy with: ", obj);  alloy("configure", obj);
+      }
 
+      configureAlloy({
+        defaultConsent: "in",
+        debugEnabled: true,
+        idMigrationEnabled: false,
+        prehidingStyle: "body { opacity: 0 !important }",
+        thirdPartyCookiesEnabled: false
+      });
+
+      var alloyEvent = { renderDecisions: true};
+
+      alloy("sendEvent", alloyEvent).catch(() => { console.log("ERROR: failed to send alloyEvent") });
+    </script>
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Target SPA website" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
