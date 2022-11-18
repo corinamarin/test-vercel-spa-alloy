@@ -29,6 +29,7 @@
       (window, ["alloy"]);
     </script>
 
+
     <!--/Data Layer-->
     <!-- targetPageParams(), targetPageParamsAll(), Data Providers or targetGlobalSettings() functions to enrich the visitor profile or modify the library settings-->
 <!--    <script>-->
@@ -48,26 +49,37 @@
 <!--    </script>-->
     <!--/targetPageParams()-->
 <!--    <script src="%PUBLIC_URL%/scripts/at-taasqa1-spa.js"></script>-->
-    <script src="%PUBLIC_URL%/scripts/alloy.js"></script>
+    <script src="%PUBLIC_URL%/scripts/alloy2.js"></script>
+<!--    <script>-->
+<!--      function configureAlloy(obj) {-->
+<!--        obj ||= {};-->
+<!--        obj.edgeConfigId ||= '0814ac07-ffeb-44c4-8633-85301d5e721c';-->
+<!--        obj.orgId ||= "906E3A095DC834230A495FD6@AdobeOrg";-->
+<!--        console.info("configuring alloy with: ", obj);  alloy("configure", obj);-->
+<!--      }-->
+
+<!--      configureAlloy({-->
+<!--        defaultConsent: "in",-->
+<!--        debugEnabled: true,-->
+<!--        idMigrationEnabled: false,-->
+<!--        prehidingStyle: "body { opacity: 0 !important }",-->
+<!--        thirdPartyCookiesEnabled: false-->
+<!--      });-->
+
+<!--      var alloyEvent = { renderDecisions: true};-->
+
+<!--      alloy("sendEvent", alloyEvent).catch(() => { console.log("ERROR: failed to send alloyEvent") });-->
+<!--    </script>-->
+
     <script>
-      function configureAlloy(obj) {
-        obj ||= {};
-        obj.edgeConfigId ||= '0814ac07-ffeb-44c4-8633-85301d5e721c';
-        obj.orgId ||= "906E3A095DC834230A495FD6@AdobeOrg";
-        console.info("configuring alloy with: ", obj);  alloy("configure", obj);
-      }
-
-      configureAlloy({
-        defaultConsent: "in",
+      alloy("configure", {
+        // defaultConsent: { general: "pending" },
+        edgeDomain: undefined,
+        edgeConfigId: "140a1d7d-90ac-44d4-921e-6bb819da36b7:prod",
+        orgId: "97D1F3F459CE0AD80A495CBE@AdobeOrg",
         debugEnabled: true,
-        idMigrationEnabled: false,
-        prehidingStyle: "body { opacity: 0 !important }",
-        thirdPartyCookiesEnabled: false
+        prehidingStyle: "body { opacity: 0 !important }"
       });
-
-      var alloyEvent = { renderDecisions: true};
-
-      alloy("sendEvent", alloyEvent).catch(() => { console.log("ERROR: failed to send alloyEvent") });
     </script>
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Target SPA website" />
