@@ -7,19 +7,21 @@ class Users extends Component {
     }
 
     render() {
-        window["alloy"]("sendEvent", {
-            renderDecisions: true,
-            xdm: {
-                web: {
-                    webPageDetails: {
-                        viewName: "/users"
-                    }
-                },
-                eventType: "view-change"
-            }
-        }).then(({decisions = []}) => {
-            console.log("scope based decisions for users view", decisions);
-        });
+        setTimeout(() => {
+            window["alloy"]("sendEvent", {
+                renderDecisions: true,
+                xdm: {
+                    web: {
+                        webPageDetails: {
+                            viewName: "/users"
+                        }
+                    },
+                    eventType: "view-change"
+                }
+            }).then(({decisions = []}) => {
+                console.log("scope based decisions for users view", decisions);
+            })
+        }, 3000);
 
         return (
             <>

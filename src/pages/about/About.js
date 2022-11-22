@@ -7,19 +7,22 @@ class About extends Component {
     }
 
     render() {
-        window["alloy"]("sendEvent", {
-            renderDecisions: true,
-            xdm: {
-                web: {
-                    webPageDetails: {
-                        viewName: "/about"
-                    }
-                },
-                eventType: "view-change"
-            }
-        }).then(({ decisions = [] }) => {
-            console.log("scope based decisions for about view", decisions);
-        });
+        setTimeout(() => {
+            window["alloy"]("sendEvent", {
+                renderDecisions: true,
+                xdm: {
+                    web: {
+                        webPageDetails: {
+                            viewName: "/about"
+                        }
+                    },
+                    eventType: "view-change"
+                }
+            }).then(({decisions = []}) => {
+                console.log("scope based decisions for about view", decisions);
+            })
+        }, 3000);
+
         return (
             <>
                 <h2 id="heading-about">About</h2>

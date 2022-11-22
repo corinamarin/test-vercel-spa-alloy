@@ -8,20 +8,24 @@ class Home extends Component {
     constructor(props) {
         super(props)
     }
+
     render() {
-        window["alloy"]("sendEvent", {
-            renderDecisions: true,
-            xdm: {
-                web: {
-                    webPageDetails: {
-                        viewName: "/home"
-                    }
-                },
-                eventType: "view-change"
-            }
-        }).then(({decisions = []}) => {
-            console.log("scope based decisions for home view", decisions);
-        });
+        setTimeout(() => {
+            window["alloy"]("sendEvent", {
+                renderDecisions: true,
+                xdm: {
+                    web: {
+                        webPageDetails: {
+                            viewName: "/home"
+                        }
+                    },
+                    eventType: "view-change"
+                }
+            }).then(({decisions = []}) => {
+                console.log("scope based decisions for users home", decisions);
+            })
+        }, 3000);
+
 
         return (
             <>
