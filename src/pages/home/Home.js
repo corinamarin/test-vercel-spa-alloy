@@ -14,7 +14,7 @@ class Home extends Component {
             xdm: {
                 web: {
                     webPageDetails: {
-                        viewName: "/home"
+                        viewName: "home"
                     }
                 },
                 eventType: "view-change"
