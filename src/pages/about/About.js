@@ -12,7 +12,7 @@ class About extends Component {
             xdm: {
                 web: {
                     webPageDetails: {
-                        viewName: "/about"
+                        viewName: "about"
                     }
                 },
                 eventType: "view-change"
