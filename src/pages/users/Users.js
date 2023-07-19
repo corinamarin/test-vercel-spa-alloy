@@ -12,7 +12,7 @@ class Users extends Component {
             xdm: {
                 web: {
                     webPageDetails: {
-                        viewName: "/users"
+                        viewName: "users"
                     }
                 },
                 eventType: "view-change"
