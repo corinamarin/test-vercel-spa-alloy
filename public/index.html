@@ -43,29 +43,25 @@
 <!--    </script>-->
     <!--/targetPageParams()-->
 <!--    <script src="%PUBLIC_URL%/scripts/at-taasqa1-spa.js"></script>-->
-    <script src="%PUBLIC_URL%/scripts/alloy2.js"></script>
-<!--    <script>-->
-<!--      function configureAlloy(obj) {-->
-<!--        obj ||= {};-->
-<!--        obj.edgeConfigId ||= '0814ac07-ffeb-44c4-8633-85301d5e721c';-->
-<!--        obj.orgId ||= "906E3A095DC834230A495FD6@AdobeOrg";-->
-<!--        console.info("configuring alloy with: ", obj);  alloy("configure", obj);-->
-<!--      }-->
+<script src="%PUBLIC_URL%/scripts/alloy.js"></script>
+<script>
+        alloy("configure", {
+          defaultConsent: "in",
+          edgeDomain: "edge-int.adobedc.net",
+          edgeConfigId: "19fc5fe9-37df-46da-8f5c-9eeff4f75ed9:prod",
+          orgId: "745F37C35E4B776E0A49421B@AdobeOrg",
+          debugEnabled: true,
+          idMigrationEnabled: false,
+          prehidingStyle: "body { opacity: 0 !important }"
+        });
+         
+        alloy("sendEvent",{
+        "renderDecisions": true
+        });
+</script>
+    
 
-<!--      configureAlloy({-->
-<!--        defaultConsent: "in",-->
-<!--        debugEnabled: true,-->
-<!--        idMigrationEnabled: false,-->
-<!--        prehidingStyle: "body { opacity: 0 !important }",-->
-<!--        thirdPartyCookiesEnabled: false-->
-<!--      });-->
-
-<!--      var alloyEvent = { renderDecisions: true};-->
-
-<!--      alloy("sendEvent", alloyEvent).catch(() => { console.log("ERROR: failed to send alloyEvent") });-->
-<!--    </script>-->
-
-    <script>
+<!--     <script>
       alloy("configure", {
         // defaultConsent: { general: "pending" },
         edgeDomain: undefined,
@@ -74,9 +70,9 @@
         debugEnabled: true,
         prehidingStyle: "body { opacity: 0 !important }"
       });
-    </script>
+    </script> -->
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Target SPA website" />
+    <meta name="description" content="Target SPA website - CJM-STAGE-WEB" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
